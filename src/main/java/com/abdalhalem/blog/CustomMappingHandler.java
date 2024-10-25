@@ -16,17 +16,16 @@ public class CustomMappingHandler extends RequestMappingHandlerMapping {
     protected RequestMappingInfo getMappingForMethod(Method method, Class<?> handlerType) {
         String packageName = handlerType.getPackageName();
 
-        // Add a prefix based on the package (you can customize this logic)
         String prefix = "";
         if (packageName.startsWith("com.abdalhalem.blog.api")) {
             prefix = "/api";
-            logger.info("api controller {}", getMethodMapping(method));
+            // logger.info("api controller {}", getMethodMapping(method));
         } else if (packageName.startsWith("com.abdalhalem.blog.dashboard")) {
-            prefix = "/dashboard/";
-            logger.info("dashboard controller {}", getMethodMapping(method));
+            prefix = "/dashboard";
+            // logger.info("dashboard controller {}", getMethodMapping(method));
         } else if (packageName.startsWith("com.abdalhalem.blog.web")) {
-            prefix = "";
-            logger.info("web controller {}", getMethodMapping(method));
+            prefix = "/";
+            // logger.info("web controller {}", getMethodMapping(method));
         }
 
         RequestMappingInfo mappingInfo = super.getMappingForMethod(method, handlerType);
