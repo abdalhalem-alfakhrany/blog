@@ -38,8 +38,4 @@ public class CustomMappingHandler extends RequestMappingHandlerMapping {
 
         return null;
     }
-
-    private String getMethodMapping(Method method) {
-        return method.getDeclaringClass().getSimpleName() + "#" + method.getName();
-    }
 }
